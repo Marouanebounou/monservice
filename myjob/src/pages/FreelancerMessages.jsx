@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaSearch, FaPaperclip, FaPaperPlane, FaEllipsisV, FaCheck, FaCheckDouble, FaArrowLeft, FaBriefcase, FaTrash } from "react-icons/fa";
-import FreelancerSideBar from "../components/FreelancerSidebar.jsx";
+import FreelancerSidebar from "../components/FreelancerSidebar.jsx";
 import io from "socket.io-client";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
@@ -349,7 +349,7 @@ export default function FreelancerMessages() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="flex">
-        <FreelancerSideBar />
+        <FreelancerSidebar />
 
         {/* Main Content */}
         <div className="flex-1 md:ml-64">

@@ -24,8 +24,8 @@ import {
   FaFileAlt,
   FaMapPin
 } from "react-icons/fa";
-import Sidebar from "../components/Sidebar";
-import FreelancerSidebar from "../components/FreelancerSidebar";
+import Sidebar from "../components/Sidebar.jsx";
+import FreelancerSidebar from "../components/FreelancerSidebar.jsx";
 
 export default function Dashboard() {
   const [searchTerm, setSearchTerm] = useState("");

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import FreelancerSidebar from "../components/FreelancerSidebar";
+import FreelancerSidebar from "../components/FreelancerSidebar.jsx";
 
 export default function FreelancerDashboard() {
   const [posts, setPosts] = React.useState([]);

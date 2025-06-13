@@ -2,21 +2,21 @@ import React from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { isAuthenticated, getUser } from './utils/auth';
 
-import HomeLandingPage from './pages/LandingPage';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
-import WhyUsPage from './pages/WhyUs';
-import { HowToHire } from './pages/HowToHire';
-import Dashboard from './pages/Dashboard';
-import ClientProfile from './pages/ClientProfile';
-import ClientDashboard from './pages/ClientDashboard';
-import FreelancerProfile from './pages/FreelancerProfile';
-import FreelancerSettings from './pages/FreelancerSettings';
-import ClientSettings from './pages/ClientSettings';
-import Clients from './pages/Clients';
-import ClientMessages from './pages/Messages';
-import FreelancerMessages from './pages/FreelancerMessages';
-import ClientPosts from './pages/ClientPosts';
+import HomeLandingPage from './pages/LandingPage.tsx';
+import SignIn from './pages/SignIn.tsx';
+import SignUp from './pages/SignUp.tsx';
+import WhyUsPage from './pages/WhyUs.tsx';
+import { HowToHire } from './pages/HowToHire.tsx';
+import Dashboard from './pages/Dashboard.jsx';
+import ClientProfile from './pages/ClientProfile.jsx';
+import ClientDashboard from './pages/ClientDashboard.jsx';
+import FreelancerProfile from './pages/FreelancerProfile.jsx';
+import FreelancerSettings from './pages/FreelancerSettings.jsx';
+import ClientSettings from './pages/ClientSettings.jsx';
+import Clients from './pages/Clients.jsx';
+import ClientMessages from './pages/Messages.jsx';
+import FreelancerMessages from './pages/FreelancerMessages.jsx';
+import ClientPosts from './pages/ClientPosts.jsx';
 
 export default function AppRoutes() {
   const location = useLocation();
