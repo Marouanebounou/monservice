@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaBell, FaGlobe, FaPalette, FaLock, FaUser, FaGraduationCap, FaBriefcase, FaLink } from "react-icons/fa";
 import ClientSideBar from "../components/ClientSideBar";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext.jsx";
 export default function Settings() {
   const [settings, setSettings] = useState({
     // Account Security

@@ -3,7 +3,7 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { initAuth, isAuthenticated, getUser } from './utils/auth'
 import React from 'react'
-import { AuthProvider } from './contexts/AuthContext'
+import { AuthProvider } from './contexts/AuthContext.jsx'
 import AppRoutes from './AppRoutes'
 import PageLoader from './components/PageLoader'
 
