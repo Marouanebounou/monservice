@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaSearch, FaPaperclip, FaPaperPlane, FaEllipsisV, FaCheck, FaCheckDouble, FaArrowLeft, FaBriefcase, FaTrash } from "react-icons/fa";
-import FreelancerSideBar from "../components/FreelancerSideBar";
+import FreelancerSideBar from "../components/FreelancerSidebar.jsx";
 import io from "socket.io-client";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
