@@ -1,0 +1,98 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Menu, Briefcase, MessageSquare, Settings, Search } from "lucide-react";
+
+const availableJobs = [
+  {
+    id: 1,
+    title: "Create a Shopify Store",
+    budget: "$500",
+    postedBy: "TechSolutions",
+  },
+  {
+    id: 2,
+    title: "Logo design for startup",
+    budget: "$100",
+    postedBy: "BrightStart Co.",
+  },
+];
+
+export default function FreelancerDashboard() {
+  const [activePage, setActivePage] = useState("dashboard");
+
+  return (
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
+      <div className="w-64 bg-white shadow-xl p-4 space-y-6">
+        <h2 className="text-2xl font-bold text-blue-600">Freelancer Panel</h2>
+        <nav className="space-y-4">
+          <button onClick={() => setActivePage("dashboard")} className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+            <Menu size={18} /> Dashboard
+          </button>
+          <button onClick={() => setActivePage("findWork")} className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+            <Search size={18} /> Find Work
+          </button>
+          <button onClick={() => setActivePage("myProjects")} className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+            <Briefcase size={18} /> My Projects
+          </button>
+          <button onClick={() => setActivePage("messages")} className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+            <MessageSquare size={18} /> Messages
+          </button>
+          <button onClick={() => setActivePage("settings")} className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+            <Settings size={18} /> Settings
+          </button>
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-8 overflow-y-auto">
+        {activePage === "dashboard" && (
+          <div>
+            <h1 className="text-3xl font-semibold mb-6">Welcome Freelancer!</h1>
+            <p className="text-gray-600">Explore new job opportunities and manage your work in one place.</p>
+          </div>
+        )}
+
+        {activePage === "findWork" && (
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Available Jobs</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {availableJobs.map((job) => (
+                <Card key={job.id} className="border border-gray-200">
+                  <CardContent className="p-4">
+                    <h3 className="text-xl font-medium mb-1">{job.title}</h3>
+                    <p className="text-sm text-gray-500 mb-1">Budget: {job.budget}</p>
+                    <p className="text-sm text-gray-500">Posted by: {job.postedBy}</p>
+                    <Button className="mt-3">Apply</Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {activePage === "myProjects" && (
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">My Projects</h1>
+            <p className="text-gray-500">[List of accepted jobs and their status]</p>
+          </div>
+        )}
+
+        {activePage === "messages" && (
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Messages</h1>
+            <p className="text-gray-500">[Messaging system UI here]</p>
+          </div>
+        )}
+
+        {activePage === "settings" && (
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Settings</h1>
+            <p className="text-gray-500">[Freelancer settings form here]</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,71 @@
+import { Star } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+
+const user = {
+  name: "Jane Doe",
+  role: "Full Stack Developer",
+  bio: "Experienced developer with a strong background in building scalable web apps using React, Node.js, and MongoDB.",
+  skills: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+  hourlyRate: 45,
+  rating: 4.8,
+  reviews: [
+    {
+      id: 1,
+      author: "TechCorp",
+      content: "Jane delivered excellent work ahead of schedule. Highly recommend!",
+      rating: 5,
+    },
+    {
+      id: 2,
+      author: "StartupHub",
+      content: "Great communication and solid code. Will work with her again.",
+      rating: 4.5,
+    },
+  ],
+};
+
+export default function UserProfile() {
+  return (
+    <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-2xl font-semibold">{user.name}</h2>
+          <p className="text-gray-500">{user.role}</p>
+        </div>
+        <div className="text-right">
+          <p className="text-sm text-gray-400">Hourly Rate</p>
+          <p className="text-lg font-bold">${user.hourlyRate}/hr</p>
+        </div>
+      </div>
+
+      <p className="mt-4 text-gray-600">{user.bio}</p>
+
+      <div className="mt-4">
+        <h3 className="text-lg font-medium mb-2">Skills</h3>
+        <div className="flex flex-wrap gap-2">
+          {user.skills.map((skill, index) => (
+            <Badge key={index}>{skill}</Badge>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <h3 className="text-lg font-medium mb-2">Reviews</h3>
+        <div className="space-y-4">
+          {user.reviews.map((review) => (
+            <div key={review.id} className="p-4 border border-gray-200 rounded-md">
+              <div className="flex justify-between mb-1">
+                <p className="font-medium">{review.author}</p>
+                <div className="flex items-center gap-1 text-yellow-500">
+                  <Star size={16} fill="currentColor" />
+                  <span className="text-sm">{review.rating}</span>
+                </div>
+              </div>
+              <p className="text-gray-600 text-sm">{review.content}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

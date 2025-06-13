@@ -1,0 +1,97 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Menu, Briefcase, MessageSquare, Settings, PlusCircle } from "lucide-react";
+
+const clientJobs = [
+  {
+    id: 1,
+    title: "Build a landing page in React",
+    status: "Open",
+    proposals: 5,
+  },
+  {
+    id: 2,
+    title: "Fix bugs in existing mobile app",
+    status: "In Progress",
+    proposals: 3,
+  },
+];
+
+export default function ClientDashboard() {
+  const [activePage, setActivePage] = useState("dashboard");
+
+  return (
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
+      <div className="w-64 bg-white shadow-xl p-4 space-y-6">
+        <h2 className="text-2xl font-bold text-green-600">Client Panel</h2>
+        <nav className="space-y-4">
+          <button onClick={() => setActivePage("dashboard")} className="flex items-center gap-2 text-gray-700 hover:text-green-600">
+            <Menu size={18} /> Dashboard
+          </button>
+          <button onClick={() => setActivePage("postJob")} className="flex items-center gap-2 text-gray-700 hover:text-green-600">
+            <PlusCircle size={18} /> Post a Job
+          </button>
+          <button onClick={() => setActivePage("myJobs")} className="flex items-center gap-2 text-gray-700 hover:text-green-600">
+            <Briefcase size={18} /> My Jobs
+          </button>
+          <button onClick={() => setActivePage("messages")} className="flex items-center gap-2 text-gray-700 hover:text-green-600">
+            <MessageSquare size={18} /> Messages
+          </button>
+          <button onClick={() => setActivePage("settings")} className="flex items-center gap-2 text-gray-700 hover:text-green-600">
+            <Settings size={18} /> Settings
+          </button>
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-8 overflow-y-auto">
+        {activePage === "dashboard" && (
+          <div>
+            <h1 className="text-3xl font-semibold mb-6">Welcome back!</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {clientJobs.map((job) => (
+                <Card key={job.id} className="border border-gray-200">
+                  <CardContent className="p-4">
+                    <h3 className="text-xl font-medium mb-1">{job.title}</h3>
+                    <p className="text-sm text-gray-500 mb-2">Status: {job.status}</p>
+                    <p className="text-sm text-gray-500">Proposals: {job.proposals}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {activePage === "postJob" && (
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Post a New Job</h1>
+            <p className="text-gray-500">[Job post form will go here]</p>
+          </div>
+        )}
+
+        {activePage === "myJobs" && (
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">My Job Posts</h1>
+            <p className="text-gray-500">[List of posted jobs, filter options]</p>
+          </div>
+        )}
+
+        {activePage === "messages" && (
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Messages</h1>
+            <p className="text-gray-500">[Messaging UI will go here]</p>
+          </div>
+        )}
+
+        {activePage === "settings" && (
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Settings</h1>
+            <p className="text-gray-500">[Client settings form here]</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
